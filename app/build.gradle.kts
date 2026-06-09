@@ -1,7 +1,7 @@
 plugins {
-    alias(libs.plugins.android.application)
-    alias(libs.plugins.kotlin.android)
-    alias(libs.plugins.kotlin.kapt)
+    id("com.android.application")
+    id("org.jetbrains.kotlin.android")
+    id("org.jetbrains.kotlin.kapt")
 }
 
 android {
@@ -19,6 +19,10 @@ android {
         versionCode = 1
         versionName = "1.0"
 
+        buildFeatures {
+            viewBinding = true
+        }
+
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
 
@@ -34,11 +38,8 @@ android {
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_11
         targetCompatibility = JavaVersion.VERSION_11
-
     }
 }
-
-
 
 dependencies {
     implementation(libs.androidx.activity.ktx)
@@ -54,6 +55,5 @@ dependencies {
 
     implementation("androidx.room:room-runtime:$roomVersion")
     implementation("androidx.room:room-ktx:$roomVersion")
-
-    kapt("androidx.room:room-compiler:2.6.1")
+    kapt("androidx.room:room-compiler:$roomVersion")
 }
