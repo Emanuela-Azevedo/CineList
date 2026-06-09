@@ -10,7 +10,7 @@ import androidx.room.Update
 interface ConteudoDao {
 
     @Insert
-    suspend fun inserir(conteudo: Conteudo)
+    suspend fun inserir(conteudo: Conteudo): Long
 
     @Update
     suspend fun atualizar(conteudo: Conteudo)
